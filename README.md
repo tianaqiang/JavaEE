@@ -15,6 +15,6 @@ Actuator：springboot程序监控器
 
 ### 结果展示
 
-![image-20221011213020394](assets/image-20221011213020394.png)
+![image-20221011213020394](https://gitee.com/tian-aqiang/cloudimage/raw/master/blog/xmu/OOAD/202210120946306.png)
 
-![image-20221011231942517](assets/image-20221011231942517.png)
+![image-20221011231942517](https://gitee.com/tian-aqiang/cloudimage/raw/master/blog/xmu/OOAD/202210120946308.png)
