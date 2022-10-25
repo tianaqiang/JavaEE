@@ -1,4 +1,4 @@
-package com.ooda.entity;
+package com.ooda.controller.vo;
 
 /**
  * @author Ming Qiu

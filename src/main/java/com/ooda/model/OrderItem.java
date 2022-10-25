@@ -1,9 +1,10 @@
-package com.ooda.entity;
+package com.ooda.model;
 
+import com.ooda.controller.vo.VoObject;
+import com.ooda.mapper.po.OrderItemPo;
 import lombok.Data;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.HashMap;
 
 /**

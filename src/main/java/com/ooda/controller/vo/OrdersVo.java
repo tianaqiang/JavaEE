@@ -1,9 +1,10 @@
-package com.ooda.entity;
+package com.ooda.controller.vo;
 
+import com.ooda.model.OrderItem;
+import com.ooda.model.Orders;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 

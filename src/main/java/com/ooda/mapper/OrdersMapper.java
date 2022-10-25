@@ -1,8 +1,7 @@
 package com.ooda.mapper;
 
-import com.ooda.entity.OrderItemPo;
-import com.ooda.entity.OrdersPo;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.ooda.mapper.po.OrderItemPo;
+import com.ooda.mapper.po.OrdersPo;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -10,10 +9,6 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 /**
- * <p>
- *  Mapper 接口
- * </p>
- *
  * @author TianAqiang
  * @since 2022-10-10
  */

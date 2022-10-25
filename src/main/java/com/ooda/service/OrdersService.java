@@ -1,9 +1,9 @@
 package com.ooda.service;
 
 import com.ooda.dao.OrdersDao;
-import com.ooda.entity.Orders;
-import com.ooda.entity.OrdersVo;
-import com.ooda.entity.VoObject;
+import com.ooda.model.Orders;
+import com.ooda.controller.vo.OrdersVo;
+import com.ooda.controller.vo.VoObject;
 import com.ooda.util.ResponseCode;
 import com.ooda.util.ReturnObject;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,13 +1,12 @@
 package com.ooda.dao;
 
-import com.ooda.entity.OrderItem;
-import com.ooda.entity.OrderItemPo;
-import com.ooda.entity.Orders;
-import com.ooda.entity.OrdersPo;
+import com.ooda.model.OrderItem;
+import com.ooda.mapper.po.OrderItemPo;
+import com.ooda.model.Orders;
+import com.ooda.mapper.po.OrdersPo;
 import com.ooda.mapper.OrdersMapper;
 import com.ooda.util.ResponseCode;
 import com.ooda.util.ReturnObject;
-import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

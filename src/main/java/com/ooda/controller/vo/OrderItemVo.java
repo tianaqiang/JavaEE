@@ -1,5 +1,6 @@
-package com.ooda.entity;
+package com.ooda.controller.vo;
 
+import com.ooda.model.OrderItem;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 

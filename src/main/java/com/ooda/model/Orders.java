@@ -1,5 +1,7 @@
-package com.ooda.entity;
+package com.ooda.model;
 
+import com.ooda.controller.vo.VoObject;
+import com.ooda.mapper.po.OrdersPo;
 import lombok.Data;
 
 import java.time.LocalDateTime;

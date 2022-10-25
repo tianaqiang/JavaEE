@@ -1,8 +1,8 @@
 package com.ooda.controller;
 
 
-import com.ooda.entity.OrdersVo;
-import com.ooda.entity.VoObject;
+import com.ooda.controller.vo.OrdersVo;
+import com.ooda.controller.vo.VoObject;
 import com.ooda.service.OrdersService;
 import com.ooda.util.ResponseCode;
 import com.ooda.util.ResponseUtil;
@@ -24,7 +24,6 @@ public class OrdersController {
     public OrdersController(OrdersService ordersService) {
         this.ordersService = ordersService;
     }
-
 
     /**
      * 根据id查找订单
