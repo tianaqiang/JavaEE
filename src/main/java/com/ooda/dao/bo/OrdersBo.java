@@ -1,4 +1,4 @@
-package com.ooda.model;
+package com.ooda.dao.bo;
 
 import com.ooda.controller.vo.VoObject;
 import com.ooda.mapper.po.OrdersPo;
@@ -15,17 +15,17 @@ import java.util.List;
  * @create 2022/10/10 21:34
  */
 @Data
-public class Orders implements VoObject {
+public class OrdersBo implements VoObject {
 
     private OrdersPo ordersPo;
 
-    private List<OrderItem> orderItems;
+    private List<OrderItemBo> orderItemBos;
 
-    public Orders() {
+    public OrdersBo() {
         this.ordersPo = new OrdersPo();
     }
 
-    public Orders(OrdersPo ordersPo) {
+    public OrdersBo(OrdersPo ordersPo) {
         this.ordersPo = ordersPo;
     }
 
@@ -33,12 +33,12 @@ public class Orders implements VoObject {
         return ordersPo;
     }
 
-    public List<OrderItem> getOrdersItemList() {
-        return orderItems;
+    public List<OrderItemBo> getOrdersItemList() {
+        return orderItemBos;
     }
 
-    public void setOrderItemList(List<OrderItem> orderItems) {
-        this.orderItems = orderItems;
+    public void setOrderItemList(List<OrderItemBo> orderItemBos) {
+        this.orderItemBos = orderItemBos;
     }
 
     public void setOrderssPo(OrdersPo ordersPo) {
@@ -263,14 +263,13 @@ public class Orders implements VoObject {
 
     /**
      * 创建Vo对象
-     *
      * @return Vo对象
      */
     @Override
     public Object createVo() {
         ArrayList<HashMap<String, Object>> orderItemInfos = new ArrayList();
-        for (OrderItem orderItem : this.orderItems)
-            orderItemInfos.add(orderItem.createVo());
+        for (OrderItemBo orderItemBo : this.orderItemBos)
+            orderItemInfos.add(orderItemBo.createVo());
 
         HashMap<String, Object> retOrdersInfo = new HashMap<>();
         retOrdersInfo.put("id", ordersPo.getId());

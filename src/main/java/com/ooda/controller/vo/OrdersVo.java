@@ -1,7 +1,7 @@
 package com.ooda.controller.vo;
 
-import com.ooda.model.OrderItem;
-import com.ooda.model.Orders;
+import com.ooda.dao.bo.OrderItemBo;
+import com.ooda.dao.bo.OrdersBo;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
@@ -35,24 +35,24 @@ public class OrdersVo {
 
     private List<OrderItemVo> orderItems;
 
-    public Orders createOrders() {
-        Orders orders = new Orders();
-        orders.setConsignee(this.consignee);
-        orders.setRegionId(this.regionId);
-        orders.setAddress(this.address);
-        orders.setMobile(this.mobile);
-        orders.setMessage(this.message);
-        orders.setCouponId(this.couponId);
-        orders.setPid(this.presaleId);
-        orders.setGrouponId(this.grouponId);
+    public OrdersBo createOrders() {
+        OrdersBo ordersBo = new OrdersBo();
+        ordersBo.setConsignee(this.consignee);
+        ordersBo.setRegionId(this.regionId);
+        ordersBo.setAddress(this.address);
+        ordersBo.setMobile(this.mobile);
+        ordersBo.setMessage(this.message);
+        ordersBo.setCouponId(this.couponId);
+        ordersBo.setPid(this.presaleId);
+        ordersBo.setGrouponId(this.grouponId);
 
         if (orderItems != null) {
-            List<OrderItem> orderItemList = new ArrayList<>(orderItems.size());
+            List<OrderItemBo> orderItemBoList = new ArrayList<>(orderItems.size());
             for (OrderItemVo orderItemVo : orderItems)
-                orderItemList.add(orderItemVo.createOrderItem());
-            orders.setOrderItemList(orderItemList);
+                orderItemBoList.add(orderItemVo.createOrderItem());
+            ordersBo.setOrderItemList(orderItemBoList);
         }
 
-        return orders;
+        return ordersBo;
     }
 }

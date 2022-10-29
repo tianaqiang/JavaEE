@@ -1,7 +1,7 @@
 package com.ooda.service;
 
 import com.ooda.dao.OrdersDao;
-import com.ooda.model.Orders;
+import com.ooda.dao.bo.OrdersBo;
 import com.ooda.controller.vo.OrdersVo;
 import com.ooda.controller.vo.VoObject;
 import com.ooda.util.ResponseCode;
@@ -28,7 +28,7 @@ public class OrdersService{
      * @return
      */
     public ReturnObject<VoObject> findOrderById(Long id) {
-        ReturnObject<Orders> returnOrder = ordersDao.findOrderById(id);
+        ReturnObject<OrdersBo> returnOrder = ordersDao.findOrderById(id);
 
         ReturnObject<VoObject> returnVoObject = null;
         if (returnOrder.getCode().equals(ResponseCode.OK)) {

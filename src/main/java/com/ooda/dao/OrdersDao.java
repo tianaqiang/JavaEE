@@ -1,8 +1,8 @@
 package com.ooda.dao;
 
-import com.ooda.model.OrderItem;
+import com.ooda.dao.bo.OrderItemBo;
 import com.ooda.mapper.po.OrderItemPo;
-import com.ooda.model.Orders;
+import com.ooda.dao.bo.OrdersBo;
 import com.ooda.mapper.po.OrdersPo;
 import com.ooda.mapper.OrdersMapper;
 import com.ooda.util.ResponseCode;
@@ -32,42 +32,42 @@ public class OrdersDao {
      * @param id
      * @return
      */
-    public ReturnObject<Orders> findOrderById(Long id) {
+    public ReturnObject<OrdersBo> findOrderById(Long id) {
 
         // 获取不包含OrderItems的OrdersPo，并交由Order代理
         OrdersPo ordersPo = ordersMapper.selectOrderById(id);
-        Orders orders = new Orders(ordersPo);
+        OrdersBo ordersBo = new OrdersBo(ordersPo);
 
-        List<OrderItem> orderItemList = null;
+        List<OrderItemBo> orderItemBoList = null;
         // 查询不为空
         if (ordersPo != null) {
             // 根据OrderId查找OrderItemPo，并交由OrderItem处理
             List<OrderItemPo> orderItemPoList = ordersMapper.selectOrderItemsByOrderId(ordersPo.getId());
-            orderItemList = new ArrayList<>(orderItemPoList.size());
+            orderItemBoList = new ArrayList<>(orderItemPoList.size());
             for (OrderItemPo orderItemPo : orderItemPoList)
-                orderItemList.add(new OrderItem(orderItemPo));
+                orderItemBoList.add(new OrderItemBo(orderItemPo));
         }
 
-        orders.setOrderItemList(orderItemList);
+        ordersBo.setOrderItemList(orderItemBoList);
 
-        return new ReturnObject<Orders>(orders);
+        return new ReturnObject<OrdersBo>(ordersBo);
     }
 
     /**
      * 新建订单order
-     * @param orders
+     * @param ordersBo
      * @return
      */
-    public ReturnObject<Object> createOrder(Orders orders) {
-        int flag = ordersMapper.insertNewOrder(orders.getOrdersPo());
+    public ReturnObject<Object> createOrder(OrdersBo ordersBo) {
+        int flag = ordersMapper.insertNewOrder(ordersBo.getOrdersPo());
         // FIELD_NOTVALID(503, "字段不合法"),
         if (flag == 0)
             return new ReturnObject<>(ResponseCode.FIELD_NOTVALID,"失败");
 
-        List<OrderItem> ordersItemList = orders.getOrdersItemList();
+        List<OrderItemBo> ordersItemList = ordersBo.getOrdersItemList();
         if (ordersItemList != null)
-            for (OrderItem orderItem : ordersItemList) {
-                flag = ordersMapper.insertNewOrderItem(orderItem.getOrderItemPo());
+            for (OrderItemBo orderItemBo : ordersItemList) {
+                flag = ordersMapper.insertNewOrderItem(orderItemBo.getOrderItemPo());
                 if (flag == 0)
                     return new ReturnObject<>(ResponseCode.FIELD_NOTVALID, "失败");
             }

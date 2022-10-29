@@ -1,4 +1,4 @@
-package com.ooda.model;
+package com.ooda.dao.bo;
 
 import com.ooda.controller.vo.VoObject;
 import com.ooda.mapper.po.OrderItemPo;
@@ -13,15 +13,15 @@ import java.util.HashMap;
  * @create 2022/10/10 20:58
  */
 @Data
-public class OrderItem implements VoObject {
+public class OrderItemBo implements VoObject {
 
     private OrderItemPo orderItemPo;
 
-    public OrderItem() {
+    public OrderItemBo() {
         this.orderItemPo = new OrderItemPo();
     }
 
-    public OrderItem(OrderItemPo orderItemPo) {
+    public OrderItemBo(OrderItemPo orderItemPo) {
         this.orderItemPo = orderItemPo;
     }
 

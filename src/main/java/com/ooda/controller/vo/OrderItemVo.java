@@ -1,6 +1,6 @@
 package com.ooda.controller.vo;
 
-import com.ooda.model.OrderItem;
+import com.ooda.dao.bo.OrderItemBo;
 import io.swagger.annotations.ApiModel;
 import lombok.Data;
 
@@ -19,11 +19,11 @@ public class OrderItemVo {
 
     private Long couponActId;
 
-    public OrderItem createOrderItem() {
-        OrderItem orderItem = new OrderItem();
-        orderItem.setGoodsSkuId(this.skuId);
-        orderItem.setQuantity(this.quantity);
-        orderItem.setCouponActivityId(this.couponActId);
-        return orderItem;
+    public OrderItemBo createOrderItem() {
+        OrderItemBo orderItemBo = new OrderItemBo();
+        orderItemBo.setGoodsSkuId(this.skuId);
+        orderItemBo.setQuantity(this.quantity);
+        orderItemBo.setCouponActivityId(this.couponActId);
+        return orderItemBo;
     }
 }
